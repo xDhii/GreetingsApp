@@ -20,18 +20,21 @@ struct TextView: View {
     ]
 
     var body: some View {
-        Text(text)
-            .fontWeight(.semibold)
-            .padding()
-            .foregroundStyle(.white)
-            .background(color.opacity(0.4))
-            .cornerRadius(20)
-            .shadow(color: color, radius: 5, x: 10, y: 10)
-            .onTapGesture {
-                withAnimation(.easeInOut(duration: 0.5)) {
-                    color = colors.randomElement() ?? .red
+        HStack {
+            Text(text)
+                .fontWeight(.semibold)
+                .padding()
+                .foregroundStyle(.white)
+                .background(color.opacity(0.4))
+                .cornerRadius(20)
+                .shadow(color: color, radius: 5, x: 10, y: 10)
+                .onTapGesture {
+                    withAnimation(.easeInOut(duration: 0.5)) {
+                        color = colors.randomElement() ?? .red
+                    }
                 }
-            }
+            Spacer()
+        }
     }
 }
 
